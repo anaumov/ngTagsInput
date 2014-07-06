@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-07-06 01:59:07 -0300
+ * Generated at 2014-07-07 00:39:41 +0400
  */
 (function() {
 'use strict';
@@ -90,7 +90,7 @@ var tagsInput = angular.module('ngTagsInput', []);
  * @param {string} ngModel Assignable angular expression to data-bind to.
  * @param {string=} [displayProperty=text] Property to be rendered as the tag label.
  * @param {number=} tabindex Tab order of the control.
- * @param {string=} [placeholder=Add a tag] Placeholder text for the control.
+ * @param {string=} [placeholder=''] Placeholder text for the control.
  * @param {number=} [minLength=3] Minimum length for a new tag.
  * @param {number=} [maxLength=MAX_SAFE_INTEGER] Maximum length allowed for a new tag.
  * @param {number=} [minTags=0] Sets minTags validation error key if the number of tags added is less than minTags.
@@ -200,7 +200,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
             $scope.events = new SimplePubSub();
 
             tagsInputConfig.load('tagsInput', $scope, $attrs, {
-                placeholder: [String, 'Add a tag'],
+                placeholder: [String, ''],
                 tabindex: [Number, null],
                 removeTagSymbol: [String, String.fromCharCode(215)],
                 replaceSpacesWithDashes: [Boolean, true],
@@ -307,7 +307,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
             };
 
             scope.newTagChange = function() {
-                events.trigger('input-change', scope.newTag.text);
+                if (!options.maxTags || scope.tags.length < options.maxTags) events.trigger('input-change', scope.newTag.text);
             };
 
             scope.$watch('tags', function(value) {
