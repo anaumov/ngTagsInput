@@ -1,3 +1,13 @@
+## 2.1.0 (2014-07-07)
+
+#### Bug Fixes
+
+* **tagsInput:**
+  * Set element's validity when options change ([e89f2682](https://github.com/mbenford/ngTagsInput/commit/e89f268218d75f23c6c14c426b7b7c7686fd8898), [#154](https://github.com/mbenford/ngTagsInput/issues/154))
+  * Replace interpolation with ngBind ([cadf8327](https://github.com/mbenford/ngTagsInput/commit/cadf83279c194b0135a5b5960987028c91c04e74))
+  * Remove dependency on interpolation symbols ([6598b556](https://github.com/mbenford/ngTagsInput/commit/6598b5562169c506e7645acbdac360e8d20c1054), [#151](https://github.com/mbenford/ngTagsInput/issues/151))
+  * Fix display of non-string items ([49734921](https://github.com/mbenford/ngTagsInput/commit/497349211ff17505208268fade98ed93e13fa082), [#150](https://github.com/mbenford/ngTagsInput/issues/150))
+
 ## v2.0.1 (2014-04-13)
 
 #### Bug Fixes

@@ -11,7 +11,7 @@
  * @param {string} ngModel Assignable angular expression to data-bind to.
  * @param {string=} [displayProperty=text] Property to be rendered as the tag label.
  * @param {number=} tabindex Tab order of the control.
- * @param {string=} [placeholder=Add a tag] Placeholder text for the control.
+ * @param {string=} [placeholder=''] Placeholder text for the control.
  * @param {number=} [minLength=3] Minimum length for a new tag.
  * @param {number=} [maxLength=MAX_SAFE_INTEGER] Maximum length allowed for a new tag.
  * @param {number=} [minTags=0] Sets minTags validation error key if the number of tags added is less than minTags.
@@ -121,7 +121,7 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
             $scope.events = new SimplePubSub();
 
             tagsInputConfig.load('tagsInput', $scope, $attrs, {
-                placeholder: [String, 'Add a tag'],
+                placeholder: [String, ''],
                 tabindex: [Number, null],
                 removeTagSymbol: [String, String.fromCharCode(215)],
                 replaceSpacesWithDashes: [Boolean, true],
@@ -228,7 +228,7 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
             };
 
             scope.newTagChange = function() {
-                events.trigger('input-change', scope.newTag.text);
+                if (!options.maxTags || scope.tags.length < options.maxTags) events.trigger('input-change', scope.newTag.text);
             };
 
             scope.$watch('tags', function(value) {
