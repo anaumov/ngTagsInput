@@ -529,7 +529,7 @@ describe('tags-input directive', function() {
             compile();
 
             // Assert
-            expect(isolateScope.options.placeholder).toBe('Add a tag');
+            expect(isolateScope.options.placeholder).toBe('');
         });
     });
 

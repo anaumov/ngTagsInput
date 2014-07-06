@@ -228,7 +228,9 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
             };
 
             scope.newTagChange = function() {
-                if (!options.maxTags || scope.tags.length < options.maxTags) events.trigger('input-change', scope.newTag.text);
+                if (!options.maxTags || scope.tags.length < options.maxTags) {
+                    events.trigger('input-change', scope.newTag.text);
+                }
             };
 
             scope.$watch('tags', function(value) {
