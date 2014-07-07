@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-07-07 00:43:49 +0400
+ * Generated at 2014-07-07 17:49:18 +0400
  */
 (function() {
 'use strict';
@@ -518,7 +518,8 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","tagsInputCon
             suggestionList = new SuggestionList(scope.source, options);
 
             getItem = function(item) {
-                return item[options.tagsInput.displayProperty];
+                return item;
+                //return item[options.tagsInput.displayProperty];
             };
 
             getDisplayText = function(item) {
@@ -813,7 +814,7 @@ tagsInput.run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put('ngTagsInput/auto-complete.html',
-    "<div class=\"autocomplete\" ng-show=\"suggestionList.visible\"><ul class=\"suggestion-list\"><li class=\"suggestion-item\" ng-repeat=\"item in suggestionList.items track by track(item)\" ng-class=\"{selected: item == suggestionList.selected}\" ng-click=\"addSuggestion()\" ng-mouseenter=\"suggestionList.select($index)\" ng-bind-html=\"highlight(item)\"></li></ul></div>"
+    "<div class=\"autocomplete\" ng-show=\"suggestionList.visible\"><div class=\"autocomplete-item\" ng-repeat=\"item in suggestionList.items track by track(item)\" ng-class=\"{selected: item == suggestionList.selected}\" ng-click=\"addSuggestion()\" ng-mouseenter=\"suggestionList.select($index)\"><div class=\"autocomplete-item-image pull-left\"><img ng-src=\"{{item.info.picture}}\"></div><div class=\"autocomplete-item-content pull-left\"><div class=\"autocomplete-item-name\">{{item.title}}</div><small class=\"text-muted\">surgery</small></div></div></div>"
   );
 }]);
 

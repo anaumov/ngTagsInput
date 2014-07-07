@@ -1,10 +1,17 @@
 <div class="autocomplete" ng-show="suggestionList.visible"> 
-  <ul class="suggestion-list">
-    <li class="suggestion-item"
-        ng-repeat="item in suggestionList.items track by track(item)"
-        ng-class="{selected: item == suggestionList.selected}"
-        ng-click="addSuggestion()"
-        ng-mouseenter="suggestionList.select($index)"
-        ng-bind-html="highlight(item)"></li>
-  </ul>
+  <div class="autocomplete-item"
+    ng-repeat="item in suggestionList.items track by track(item)"
+    ng-class="{selected: item == suggestionList.selected}"
+    ng-click="addSuggestion()"
+    ng-mouseenter="suggestionList.select($index)">
+    <div class="autocomplete-item-image pull-left">
+      <img ng-src="{{item.info.picture}}" />
+    </div>
+    <div class="autocomplete-item-content pull-left">
+      <div class="autocomplete-item-name">
+        {{item.title}}
+      </div>
+      <small class="text-muted">surgery</small>
+    </div>
+  </div>
 </div>
