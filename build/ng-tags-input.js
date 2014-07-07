@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-07-07 17:49:18 +0400
+ * Generated at 2014-07-07 23:31:33 +0400
  */
 (function() {
 'use strict';
@@ -518,12 +518,12 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","tagsInputCon
             suggestionList = new SuggestionList(scope.source, options);
 
             getItem = function(item) {
-                return item;
-                //return item[options.tagsInput.displayProperty];
+                return item[options.tagsInput.displayProperty];
             };
 
             getDisplayText = function(item) {
-                return safeToString(getItem(item));
+                //return safeToString(getItem(item));
+                return safeToString(item);
             };
 
             scope.suggestionList = suggestionList;

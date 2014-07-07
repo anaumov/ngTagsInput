@@ -127,12 +127,12 @@ tagsInput.directive('autoComplete', function($document, $timeout, $sce, tagsInpu
             suggestionList = new SuggestionList(scope.source, options);
 
             getItem = function(item) {
-                return item;
-                //return item[options.tagsInput.displayProperty];
+                return item[options.tagsInput.displayProperty];
             };
 
             getDisplayText = function(item) {
-                return safeToString(getItem(item));
+                //return safeToString(getItem(item));
+                return safeToString(item);
             };
 
             scope.suggestionList = suggestionList;
