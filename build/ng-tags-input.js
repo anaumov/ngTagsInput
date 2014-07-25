@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-07-07 23:31:45 +0400
+ * Generated at 2014-07-25 21:52:43 +0400
  */
 (function() {
 'use strict';
@@ -498,7 +498,9 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","tagsInputCon
         restrict: 'E',
         require: '^tagsInput',
         scope: { source: '&' },
-        templateUrl: 'ngTagsInput/auto-complete.html',
+        templateUrl: function(tElement, tAttrs) {
+            return tAttrs.templateUrl ||'ngTagsInput/tags-input.html';
+        },
         link: function(scope, element, attrs, tagsInputCtrl) {
             var hotkeys = [KEYS.enter, KEYS.tab, KEYS.escape, KEYS.up, KEYS.down],
                 suggestionList, tagsInput, options, getItem, getDisplayText, documentClick;
