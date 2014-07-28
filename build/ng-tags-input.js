@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2014 Michael Benford
  * License: MIT
  *
- * Generated at 2014-07-25 21:52:43 +0400
+ * Generated at 2014-07-28 13:52:56 +0400
  */
 (function() {
 'use strict';
@@ -459,9 +459,11 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","tagsInputCon
 
                     if (self.items.length > 0) {
                         self.show();
+                        self.notFound = false;
                     }
                     else {
                         self.reset();
+                        self.notFound = true;
                     }
                 });
             }, options.debounceDelay, false);
