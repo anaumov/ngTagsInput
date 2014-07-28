@@ -37,12 +37,14 @@ tagsInput.directive('autoComplete', function($document, $timeout, $sce, tagsInpu
             self.index = -1;
             self.selected = null;
             self.query = null;
+            self.notFound = false;
 
             $timeout.cancel(debouncedLoadId);
         };
         self.show = function() {
             self.selected = null;
             self.visible = true;
+            self.notFound = false;
         };
         self.load = function(query, tags) {
             if (query.length < options.minLength) {
@@ -68,7 +70,6 @@ tagsInput.directive('autoComplete', function($document, $timeout, $sce, tagsInpu
 
                     if (self.items.length > 0) {
                         self.show();
-                        self.notFound = false;
                     }
                     else {
                         self.reset();
