@@ -116,7 +116,9 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
         },
         replace: false,
         transclude: true,
-        templateUrl: 'ngTagsInput/tags-input.html',
+        templateUrl: function(tElement, tAttrs) {
+            return tAttrs.templateUrl ||'ngTagsInput/tags-input.html';
+        },
         controller: function($scope, $attrs, $element) {
             $scope.events = new SimplePubSub();
 
